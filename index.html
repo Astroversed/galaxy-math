@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="x-icon" href="icons/Logo - Everest.png">
+    <title>Galaxy Math - Avanza y Gana</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <button type="button" class="pixel-qr-trigger" id="projectQrTrigger" aria-haspopup="dialog" aria-expanded="false" aria-controls="projectQrModal" title="Abrir código QR de Galaxy Math">
+        <span class="pixel-qr-trigger__icon" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+    </button>
+
+    <main class="game-page">
+        <div id="game-container" class="game-shell">
+            <div class="game-stage">
+                <div id="game-outer-frame" class="game-outer-frame" aria-hidden="true"></div>
+                <canvas id="gameCanvas" width="600" height="800" aria-label="Galaxy Math"></canvas>
+
+                <div id="asset-blueprints" aria-hidden="true">
+                    <div class="blueprint blueprint--background" data-blueprint="background"></div>
+                    <div class="blueprint blueprint--player" data-blueprint="player"></div>
+                    <div class="blueprint blueprint--enemy" data-blueprint="enemy"></div>
+                    <div class="blueprint blueprint--obstacle" data-blueprint="obstacle"></div>
+                    <div class="blueprint blueprint--life" data-blueprint="life"></div>
+                    <div class="blueprint blueprint--token" data-blueprint="token"></div>
+                    <div class="blueprint blueprint--menu-title" data-blueprint="menu-title"></div>
+                    <div class="blueprint blueprint--menu-button" data-blueprint="menu-button"></div>
+                    <div class="blueprint blueprint--beam" data-blueprint="ultimate-beam"></div>
+
+                    <div class="blueprint-option-row">
+                        <div class="blueprint blueprint--option" data-blueprint="option-left"></div>
+                        <div class="blueprint blueprint--option" data-blueprint="option-center"></div>
+                        <div class="blueprint blueprint--option" data-blueprint="option-right"></div>
+                    </div>
+
+                    <div class="blueprint-ultimate-meter" data-blueprint="ultimate-meter">
+                        <span class="blueprint-ultimate-meter__segment"></span>
+                        <span class="blueprint-ultimate-meter__segment"></span>
+                        <span class="blueprint-ultimate-meter__segment"></span>
+                        <span class="blueprint-ultimate-meter__segment"></span>
+                        <span class="blueprint-ultimate-meter__segment"></span>
+                        <span class="blueprint-ultimate-meter__segment"></span>
+                        <span class="blueprint-ultimate-meter__segment"></span>
+                    </div>
+                </div>
+
+                <div id="asset-registry" hidden aria-hidden="true">
+                    <img id="asset-menu-background" data-asset-key="menuBackground" src="assets/Backgrounds/menuBackground.png" alt="">
+                    <img id="asset-gameover-background" data-asset-key="gameOverBackground" src="assets/Backgrounds/overBackground.png" alt="">
+                    <img id="asset-game-background" data-asset-key="gameBackground" src="assets/Backgrounds/gameBackground.png" alt="">
+                    <img id="asset-game-outer-frame" data-asset-key="gameOuterFrame" alt="">
+                    <img id="asset-option-panel-background" data-asset-key="optionPanelBackground" src="assets/Backgrounds/optionPanelBackground.png" alt="">
+                    <img id="asset-menu-title" data-asset-key="menuTitle" src="assets/Title/menuTitle.png" alt="">
+                    <img id="asset-gameover-title" data-asset-key="gameOverTitle" alt="">
+                    <img id="asset-background" data-asset-key="background" alt="">
+                    <img id="asset-player" data-asset-key="player" src="assets/Characters/player.png" alt="">
+                    <img id="asset-enemy" data-asset-key="enemy" alt="">
+                    <img id="asset-enemy-variant-1" data-asset-key="enemyVariant1" src="assets/Characters/enemy1.png" alt="">
+                    <img id="asset-enemy-variant-2" data-asset-key="enemyVariant2" src="assets/Characters/enemy2.png" alt="">
+                    <img id="asset-enemy-variant-3" data-asset-key="enemyVariant3" src="assets/Characters/enemy3.png" alt="">
+                    <img id="asset-enemy-variant-4" data-asset-key="enemyVariant4" src="assets/Characters/enemy4.png" alt="">
+                    <img id="asset-enemy-variant-5" data-asset-key="enemyVariant5" src="assets/Characters/enemy5.png" alt="">
+                    <img id="asset-enemy-variant-6" data-asset-key="enemyVariant6" src="assets/Characters/enemy6.png" alt="">
+                    <img id="asset-enemy-variant-7" data-asset-key="enemyVariant7" src="assets/Characters/enemy7.png" alt="">
+                    <img id="asset-enemy-variant-8" data-asset-key="enemyVariant8" src="assets/Characters/enemy8.png" alt="">
+                    <img id="asset-obstacle" data-asset-key="obstacle" alt="">
+                    <img id="asset-option" data-asset-key="option" alt="">
+                    <img id="asset-option-frame" data-asset-key="optionFrame" src="assets/Buttons/optionFrame.png" alt="">
+                    <img id="asset-life" data-asset-key="life" src="assets/Miscellaneous/lives.png" alt="">
+                    <img id="asset-token" data-asset-key="token" src="assets/Miscellaneous/token.png" alt="">
+                    <img id="asset-player-bullet" data-asset-key="playerBullet" src="assets/Bullets/playerBullet.png" alt="">
+                    <img id="asset-enemy-bullet" data-asset-key="enemyBullet" src="assets/Bullets/enemyBullet.png" alt="">
+                    <img id="asset-ultimate-beam" data-asset-key="ultimateBeam" src="assets/Ultimate/ultimateBeam.png" alt="">
+                    <img id="asset-ultimate-activate-prompt" data-asset-key="ultimateActivatePrompt" alt="">
+                    <img id="asset-ultimate-meter-frame" data-asset-key="ultimateMeterFrame" src="assets/Ultimate/ultimateMeterFrame.png" alt="">
+                    <img id="asset-ultimate-segment" data-asset-key="ultimateSegment" src="assets/Ultimate/ultimateSegment.png" alt="">
+                    <img id="asset-ultimate-segment-active" data-asset-key="ultimateSegmentActive" src="assets/Ultimate/ultimateSegmentActive.png" alt="">
+                    <img id="asset-ultimate-banner" data-asset-key="ultimateBanner" alt="">
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="pixel-qr-modal" id="projectQrModal" hidden aria-hidden="true">
+        <div class="pixel-qr-modal__backdrop" data-qr-close="backdrop"></div>
+        <div class="pixel-qr-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="projectQrTitle">
+            <button type="button" class="pixel-qr-modal__close" id="projectQrClose" aria-label="Cerrar panel QR">X</button>
+            <p class="pixel-qr-modal__eyebrow">Galaxy Math</p>
+            <h2 class="pixel-qr-modal__title" id="projectQrTitle">Escanea el portal</h2>
+            <div class="pixel-qr-modal__frame">
+                <div class="pixel-qr-modal__frame-inner">
+                    <div id="projectQrImage" class="pixel-qr-modal__image" role="img" aria-label="Código QR de Galaxy Math"></div>
+                </div>
+            </div>
+            <p class="pixel-qr-modal__hint">Abre Galaxy Math en cualquier dispositivo.</p>
+        </div>
+    </div>
+
+    <div class="touch-controls" id="touchControls" aria-hidden="true">
+        <div class="touch-joystick" id="touchJoystick" aria-label="Joystick de movimiento">
+            <div class="touch-joystick__base">
+                <div class="touch-joystick__grid"></div>
+                <button type="button" class="touch-joystick__stick" id="touchJoystickStick" aria-label="Control de movimiento"></button>
+            </div>
+        </div>
+        <button type="button" class="touch-ultimate" id="touchUltimateButton" aria-label="Activar ultimate con G">G</button>
+    </div>
+
+    <script src="https://unpkg.com/qr-code-styling@1.9.2/lib/qr-code-styling.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
